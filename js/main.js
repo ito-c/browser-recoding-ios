@@ -1,6 +1,6 @@
 const uploadFileInput = document.getElementById("uploadFileInput");
-const previewVideo = document.getElementById("previewUploadVideo");
-const downloadFileBtn = document.getElementById("downloadUploadFileBtn");
+const previewUploadVideo = document.getElementById("previewUploadVideo");
+const downloadUploadFileBtn = document.getElementById("downloadUploadFileBtn");
 
 let uploadedFile = [];
 
@@ -38,13 +38,12 @@ uploadFileInput.addEventListener("change", () => {
 /**
 * ファイルダウンロード
 */
-downloadFileBtn.addEventListener("click", () => {
+downloadUploadFileBtn.addEventListener("click", () => {
   if (!uploadedFile.length) {
     alert("ファイルを選択してください");
     return;
   }
 
-  console.log(uploadedFile[0].name);
   let fileName = uploadedFile[0].name;
   let url = window.URL.createObjectURL(
     new Blob(uploadedFile, { type: "video/*" })
@@ -65,17 +64,17 @@ downloadFileBtn.addEventListener("click", () => {
 * 注：.movファイルのプレビューにはコーデック変更必須
 */
 function previewFile(file) {
-  let width = 300;
+  let width = 640;
   let height = 0;
   
   let reader = new FileReader();
   reader.readAsDataURL(file);
   reader.onload = (event) => {
-    previewVideo.src = event.target.result;
-    previewVideo.setAttribute("controls", "");
-    previewVideo.muted = true;
-    previewVideo.setAttribute("width", width);
-    height = previewVideo.videoHeight / (previewVideo.videoWidth / width);
-    previewVideo.setAttribute("height", height);
+    previewUploadVideo.src = event.target.result;
+    previewUploadVideo.setAttribute("controls", "");
+    previewUploadVideo.muted = true;
+    previewUploadVideo.setAttribute("width", width);
+    height = previewUploadVideo.videoHeight / (previewUploadVideo.videoWidth / width);
+    previewUploadVideo.setAttribute("height", height);
   };
 }
