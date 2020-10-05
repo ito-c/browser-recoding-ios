@@ -61,7 +61,8 @@ downloadUploadFileBtn.addEventListener("click", () => {
 
 /**
 * プレビュー作成
-* 注：.movファイルのプレビューにはコーデック変更必須
+* 注：PCでの.movファイルのプレビューにはコーデック変更必須
+* （iOS safariからであれば不必要）
 */
 function previewFile(file) {
   let width = 640;

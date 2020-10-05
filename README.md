@@ -1,7 +1,8 @@
-# tashi1118.github.i
+# browser-recoding-ios
+### 概要
 iOS / PC safari用
 
-inputタグのtype = fileにて作成
+inputタグのtype = fileで開発したパターン
 ライブラリから選択、もしくはカメラを起動して動画撮影（iOSのみ）が可能
 
 ### 懸念
